@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for post in posts_var %}
+        <div class="card text-center">
+            <div class="card-header">
+                {{post.author}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{post.header}}</h5>
+                <p class="card-text">{{post.body}}</p>
+                {% for tag in post.courses.all %}
+                    <h6 class="card-subtitle mb-2 text-muted">{{tag.nameTag}}</h6>
+                {% endfor %}
+                <a href="{{ post.id }}" class="btn btn-primary">Подробнее</a>
+                <a href="{% url 'post_detail_url' post.id %}" class="btn btn-primary">Подробнее</a>
+                <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{post.time_post}}
+            </div>
+        </div>
+    {% endfor %}
+    {% if is_paginated %}
+      <nav>
+          <ul class="pagination justify-content-center">
+                <li class="page-item {% if not prev_url %} disabled {% endif %}">
+                    <a href="{{ prev_url }}" class="page-link" tabindex="-1" aria-disabled="true">Назад</a>
+                </li>
+
+                {% for i in posts_var.paginator.page_range %}
+                  {% if posts_var.number == i %}
+                        <li class="page-item active" aria-current="page">                       
+                            <a href="?page={{i}}" class="page-link">{{i}}<span class="sr-only"></span></a>
+                        </li>
+                        
+                {% elif i > posts_var.number|add:-3 and i < posts_var.number|add:3 %}
+                     <li class="page-item">
+                          <a href="?page={{i}}" class="page-link">{{ i }}</a>
+                    </li>
+
+                {% endif %}
+                {% endfor %}
+
+                <li class="page-item {% if not next_url %} disabled {% endif %}">
+                    <a href="{{next_url}}" class="page-link">Вперёд</a>
+                </li>
+          </ul>
+      </nav>
+    {% endif %}
+{% endblock content %}

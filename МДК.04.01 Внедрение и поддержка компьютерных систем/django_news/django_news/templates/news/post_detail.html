@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card">
+    <div class="card-header">
+      {{post.header}}
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>{{post.body}}</p>
+        <h6>Тэги:</h6>
+        {% for tag in post.courses.all %}
+                      <h6 class="card-subtitle mb-2 text-muted">{{tag.nameTag}}</h6>
+        {% endfor %}
+        <footer class="blockquote-footer">{{post.author}}, {{post.time_post}}</footer>
+        
+      </blockquote>
+    </div>
+  </div>
+  <h3>Комментарии</h3>
+  <div class="row">
+    <div class="col-10">
+      {% for comment in post.comment_set.all %}
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            {% if perms.comments.can_see_author %}
+              <h6 class="card-subtitle mb-2 text-muted">{{comment.author}}</h6>
+            {% else %}
+              Аноним
+            {% endif %}
+              ,
+              <p class="card-text">{{comment.comment}}</p>
+              <p class="card-text">{{comment.time_post}}</p>
+                    
+          </div>
+        </div>
+      {% endfor %}
+      
+    </div>
+  </div>
+
+  <!-- justify-content-center -->
+  <div class="row">
+    <div class="col-8">    
+      <form action="{% url 'add_comment_url' post.id %}" method="post">    
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" class="btn btn-primary" value="Оставить комментарий">
+        <a href="{{ post.get_update_url }}" class="btn btn-primary">Изменить пост</a> 
+        <a href="{{ post.get_delete_url }}" class="btn btn-primary">Удалить пост</a>   
+      </form>
+    </div>
+  </div>
+  {% if is_paginated %}
+      <nav>
+          <ul class="pagination justify-content-center">
+                <li class="page-item {% if not prev_url %} disabled {% endif %}">
+                    <a href="{{ prev_url }}" class="page-link" tabindex="-1" aria-disabled="true">Назад</a>
+                </li>
+
+                {% for i in posts_var.paginator.page_range %}
+                  {% if posts_var.number == i %}
+                        <li class="page-item active" aria-current="page">                       
+                            <a href="?page={{i}}" class="page-link">{{i}}<span class="sr-only"></span></a>
+                        </li>
+                        
+                {% elif i > posts_var.number|add:-3 and i < posts_var.number|add:3 %}
+                     <li class="page-item">
+                          <a href="?page={{i}}" class="page-link">{{ i }}</a>
+                    </li>
+
+                {% endif %}
+                {% endfor %}
+
+                <li class="page-item {% if not next_url %} disabled {% endif %}">
+                    <a href="{{next_url}}" class="page-link">Вперёд</a>
+                </li>
+          </ul>
+      </nav>
+    {% endif %}
+{% endblock content %}

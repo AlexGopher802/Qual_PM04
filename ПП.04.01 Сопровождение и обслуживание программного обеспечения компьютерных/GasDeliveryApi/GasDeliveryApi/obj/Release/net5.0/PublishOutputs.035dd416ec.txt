@@ -1,0 +1,14 @@
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\GasDeliveryApi.exe
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\appsettings.Development.json
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\appsettings.json
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\GasDeliveryApi.dll
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\GasDeliveryApi.runtimeconfig.json
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\GasDeliveryApi.pdb
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\Microsoft.EntityFrameworkCore.dll
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\Microsoft.EntityFrameworkCore.Abstractions.dll
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\Microsoft.EntityFrameworkCore.Relational.dll
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\Microsoft.Extensions.DependencyInjection.dll
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\MySqlConnector.dll
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\Pomelo.EntityFrameworkCore.MySql.dll
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\System.Diagnostics.DiagnosticSource.dll
+G:\Work\GasDelivery\GasDeliveryApi\GasDeliveryApi\obj\Docker\publish\GasDeliveryApi.deps.json

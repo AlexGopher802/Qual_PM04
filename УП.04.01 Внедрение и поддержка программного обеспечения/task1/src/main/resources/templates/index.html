@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="getcalculate" method="get">
+        <label>Get-калькулятор :</label>
+        <input placeholder="Первый аргумент" type="number" name="aop">
+        <input placeholder="Второй аргумент" type="number" name="bop">
+        <select name="operators">
+            <option value="add">Сложение</option>
+            <option value="dif">Вычитание</option>
+            <option value="mul">Умножение</option>
+            <option value="div">Деление</option>
+        </select>
+        <button type="submit">Вычислить</button>
+    </form>
+
+    <form action="postcalculate" method="post">
+        <label>Post-калькулятор:</label>
+        <input placeholder="Первый аргумент" type="number" name="aop">
+        <input placeholder="Второй аргумент" type="number" name="bop">
+        <select name="operators">
+            <option value="add">Сложение</option>
+            <option value="dif">Вычитание</option>
+            <option value="mul">Умножение</option>
+            <option value="div">Деление</option>
+        </select>
+        <button type="submit">Вычислить</button>
+    </form>
+    <p th:text="${result}"></p>
+</body>
+</html>
